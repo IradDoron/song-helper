@@ -40,7 +40,7 @@ function Songs() {
 
 	useEffect(() => {
 		axios
-			.get(`${ALL_URLS.dev}/wedding-songs`)
+			.get(`${ALL_URLS.production}/wedding-songs`)
 			.then((res) => setAllSongs(res.data));
 	}, []);
 

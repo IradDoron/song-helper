@@ -90,7 +90,9 @@ function Literary() {
 	const [isChapterShown, setIsChapterShown] = useState(false);
 
 	useEffect(() => {
-		axios.get(`${ALL_URLS.dev}/literary`).then((res) => serAllBooks(res.data));
+		axios
+			.get(`${ALL_URLS.production}/literary`)
+			.then((res) => serAllBooks(res.data));
 	}, []);
 
 	useEffect(() => {
