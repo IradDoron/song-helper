@@ -81,7 +81,7 @@ function indexToVersesLetters(index) {
 
 function App() {
 	const [allBooks, serAllBooks] = useState(null);
-	const [currBook, setCurrBook] = useState('shir-hashirim');
+	const [currBook, setCurrBook] = useState(null);
 	const [currChapterIndex, setCurrChapterIndex] = useState(null);
 	const [currChapter, setCurrChapter] = useState(null);
 	const [currVerseIndex, setCurrVerseIndex] = useState(null);
@@ -100,6 +100,12 @@ function App() {
 			setCurrVerse(currChapter[currVerseIndex]);
 		}
 	}, [allBooks, currBook, currChapter, currChapterIndex, currVerseIndex]);
+
+	useEffect(() => {
+		if (allBooks !== null) {
+			setCurrBook('shir-hashirim');
+		}
+	}, [allBooks]);
 
 	function getDifferentRandomNumber(currNumber, min, max) {
 		let newNumber = currNumber;
