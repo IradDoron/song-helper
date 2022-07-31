@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const url = 'http://localhost:5001/api';
 
+const productionUrl = 'https://song-helper.herokuapp.com/api';
+
 const StyledChapterVerse = styled.p``;
 
 const StyledChapterVerseContent = styled.span`
@@ -88,7 +90,7 @@ function App() {
 	const [currVerse, setCurrVerse] = useState(null);
 	const [isChapterShown, setIsChapterShown] = useState(false);
 	useEffect(() => {
-		axios.get(url).then((res) => serAllBooks(res.data));
+		axios.get(productionUrl).then((res) => serAllBooks(res.data));
 	}, []);
 
 	useEffect(() => {
